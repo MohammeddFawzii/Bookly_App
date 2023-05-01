@@ -15,7 +15,7 @@ class BookModel {
     @required this.rating,
   });
 
-  factory BookModel.fromjson(dynamic jsonData) {
+  factory BookModel.fromJson(dynamic jsonData) {
     return BookModel(
       image: jsonData["volumeInfo"]["imageLinks"]?["thumbnail"],
       headLine: jsonData["volumeInfo"]["title"],
