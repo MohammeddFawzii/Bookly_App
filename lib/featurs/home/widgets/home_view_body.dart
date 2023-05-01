@@ -19,6 +19,7 @@ class HomeViewBody extends StatelessWidget {
           s1,
           const HomeHeader(),
           s1,
+          
 
           //  HomeVerticalList(verticalItems: verticalItems),
         ],
