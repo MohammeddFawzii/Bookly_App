@@ -2,7 +2,7 @@
 import 'package:bookly_app/featurs/splash/widgets/splash_view_body.dart';
 import 'package:flutter/material.dart';
 
-import '../home/home_viwe.dart';
+import '../../home/views/home_viwe.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
