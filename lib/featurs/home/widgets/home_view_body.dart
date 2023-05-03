@@ -1,3 +1,4 @@
+import 'package:bookly_app/featurs/home/widgets/best_seller_list.dart';
 import 'package:bookly_app/featurs/home/widgets/featurd_book_list.dart';
 import 'package:bookly_app/utils/api_servises.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,16 @@ class HomeViewBody extends StatelessWidget {
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),
           ),
           s1,
+          FutureBuilder(
+            future: BooksApiService.fetchFeaturedBooks(),
+            builder: (context, snapshot) {
+              if (snapshot.data == null) {
+                return const Center(child: CircularProgressIndicator());
+              } else {
+                return BestSellerList(books: snapshot.data!);
+              }
+            },
+          ),
 
           //  HomeVerticalList(verticalItems: verticalItems),
         ],

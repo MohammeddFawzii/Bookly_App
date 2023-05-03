@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
 class BookModel {
-  final String image;
+  final String? image;
   final String headLine;
   final String? auther;
   final num? price;
   final num? rating;
+  final String? description;
+  
 
   BookModel({
-    required this.image,
+    @required this.image,
     required this.headLine,
     @required this.auther,
     @required this.price,
     @required this.rating,
+    @required this.description,
   });
 
   factory BookModel.fromJson(dynamic jsonData) {
@@ -22,6 +25,7 @@ class BookModel {
       auther: jsonData["volumeInfo"]["authors"][0],
       price: jsonData["volumeInfo"]["listPrice"]?["amount"],
       rating: jsonData["volumeInfo"]["averageRating"],
+      description: jsonData["volumeInfo"]["description"] ,
     );
   }
 }

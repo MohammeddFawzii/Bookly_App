@@ -5,8 +5,8 @@ import '../models/book_model.dart';
 abstract class BooksApiService {
   static Future<List<BookModel>> fetchFeaturedBooks() async {
     final dio = Dio();
-    var response = await dio
-        .get('https://www.googleapis.com/books/v1/volumes?q=novels');
+    var response =
+        await dio.get('https://www.googleapis.com/books/v1/volumes?q=novels');
 
     List<BookModel> books = parseData(response);
     return books;
@@ -18,6 +18,9 @@ abstract class BooksApiService {
     for (var bookMap in items) {
       books.add(BookModel.fromJson(bookMap));
     }
+    boooks = books;
     return books;
   }
 }
+
+List<dynamic> boooks = [];
