@@ -2,7 +2,7 @@ import 'package:bookly_app/models/book_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import '../../description_book/views/book_details_view.dart';
+import '../../book_details/views/book_details_view.dart';
 
 class BestSellerListItem extends StatelessWidget {
   const BestSellerListItem({
