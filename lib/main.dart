@@ -4,7 +4,9 @@ import 'featurs/home/views/home_viwe.dart';
 import 'featurs/splash/views/splash_view.dart';
 
 void main() {
-  runApp(const BooklyApp ());
+  runApp(
+    
+    const BooklyApp ());
 }
 class BooklyApp extends StatelessWidget {
   const BooklyApp

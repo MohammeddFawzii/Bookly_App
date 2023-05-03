@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../../../utils/app_colors.dart';
 import '../../../utils/app_images.dart';
@@ -24,6 +23,9 @@ class HomeHeader extends StatelessWidget {
           color: AppColors.iconsColor,
           size: 32,
         ),
+        SizedBox(
+          width: 32,
+        )
       ],
     );
   }

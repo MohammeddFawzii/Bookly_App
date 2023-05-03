@@ -14,7 +14,7 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32),
+      padding: const EdgeInsets.only(left: 32),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -30,7 +30,14 @@ class HomeViewBody extends StatelessWidget {
                 return FeaturedBookList(books: snapshot.data!);
               }
             },
-          )
+          ),
+          s1,
+          const Text(
+            "Best Seller",
+            style: TextStyle(
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),
+          ),
+          s1,
 
           //  HomeVerticalList(verticalItems: verticalItems),
         ],
