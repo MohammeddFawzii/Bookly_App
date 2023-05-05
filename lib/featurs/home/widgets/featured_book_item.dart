@@ -1,4 +1,3 @@
-import 'package:bookly_app/featurs/book_details/views/book_details_view.dart';
 import 'package:flutter/material.dart';
 import '../../../models/book_model.dart';
 import '../../../utils/app_colors.dart';
@@ -25,9 +24,9 @@ class FeaturedBookItem extends StatelessWidget {
                 aspectRatio: 165 / 225,
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
-                  imageUrl: bookModel.image!,
-                  errorWidget: (context, url, error) =>
-                      const Icon(Icons.error),
+                  imageUrl: bookModel.image ??
+                      "https://media.istockphoto.com/id/1255906512/vector/error-500-page-empty-page-symbol-crash-banner-sorry-failure-graphic-message-vector.jpg?s=612x612&w=0&k=20&c=Jr0MgD_fj0d_O1PtJqA1y11IQ4_u2iLZqRJ2x3Mh2L4=",
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
@@ -42,7 +41,7 @@ class FeaturedBookItem extends StatelessWidget {
                 child: const Padding(
                   padding: EdgeInsets.all(4.0),
                   child: Icon(
-                    Icons.play_arrow,
+                    Icons.favorite,
                     color: AppColors.iconsColor,
                   ),
                 ),

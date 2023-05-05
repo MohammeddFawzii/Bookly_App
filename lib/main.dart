@@ -1,4 +1,5 @@
 import 'package:bookly_app/featurs/book_details/views/book_details_view.dart';
+import 'package:bookly_app/featurs/home/views/Search_view.dart';
 import 'package:bookly_app/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'featurs/home/views/home_viwe.dart';
@@ -21,6 +22,7 @@ class BooklyApp extends StatelessWidget {
       routes: {
         SplashView.id: (context) => const SplashView(),
         HomeView.id: (context) => const HomeView(),
+        SearchView.id: (context) => const SearchView(),
       },
       initialRoute: SplashView.id,
     );

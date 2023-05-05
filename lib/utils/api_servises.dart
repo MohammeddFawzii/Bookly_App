@@ -7,7 +7,7 @@ abstract class BooksApiService {
   static Future<List<BookModel>> fetchFeaturedBooks() async {
     try {
       final dio = Dio();
-      var response = await dio.get('$_baseUrl/volumes?q=programming');
+      var response = await dio.get('$_baseUrl/volumes?q=$apiKey');
 
       List<BookModel> books = parseData(response);
       return books;
@@ -18,7 +18,7 @@ abstract class BooksApiService {
 
   static Future<List<BookModel>> fetchBestSellerBooks() async {
     final dio = Dio();
-    var response = await dio.get('$_baseUrl/volumes?q=pr&orderBy=newest');
+    var response = await dio.get('$_baseUrl/volumes?q=$apiKey&orderBy=newest');
 
     List<BookModel> books = parseData(response);
     return books;
@@ -34,3 +34,4 @@ abstract class BooksApiService {
   }
 }
 
+String apiKey = "programming";

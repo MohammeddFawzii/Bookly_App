@@ -27,7 +27,7 @@ class BestSellerListItem extends StatelessWidget {
                       aspectRatio: 165 / 225,
                       child: CachedNetworkImage(
                         fit: BoxFit.fill,
-                        imageUrl: bookmodel.image!,
+                        imageUrl: bookmodel.image??"https://media.istockphoto.com/id/1255906512/vector/error-500-page-empty-page-symbol-crash-banner-sorry-failure-graphic-message-vector.jpg?s=612x612&w=0&k=20&c=Jr0MgD_fj0d_O1PtJqA1y11IQ4_u2iLZqRJ2x3Mh2L4=",
                         errorWidget: (context, url, error) =>
                             const Icon(Icons.error),
                       ),
@@ -72,14 +72,14 @@ class BestSellerListItem extends StatelessWidget {
                           color: Colors.amber,
                         ),
                         Text(
-                          "${bookmodel.rating ?? "0"}",
+                          "${bookmodel.rating ?? " 0 "}",
                           style: const TextStyle(
                               color: Colors.white, fontSize: 24),
                         ),
                         Text(
                           "(${bookmodel.ratingCount ?? "0"})",
-                          style: const TextStyle(
-                              color: Colors.white, fontSize: 24),
+                          style:
+                              const TextStyle(color: Colors.grey, fontSize: 24),
                         ),
                       ],
                     ),
@@ -89,8 +89,8 @@ class BestSellerListItem extends StatelessWidget {
             ),
           ),
         ),
-        const Divider(
-          endIndent: 36,
+        const SizedBox(
+          height: 10,
         )
       ],
     );
