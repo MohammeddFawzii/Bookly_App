@@ -21,7 +21,6 @@ class BooklyApp extends StatelessWidget {
       routes: {
         SplashView.id: (context) => const SplashView(),
         HomeView.id: (context) => const HomeView(),
-        BookDetailsView.id: (context) => const BookDetailsView(),
       },
       initialRoute: SplashView.id,
     );

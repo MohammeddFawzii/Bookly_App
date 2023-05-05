@@ -15,6 +15,7 @@ class DetailsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const SizedBox(height: 24),
@@ -113,7 +114,7 @@ class DetailsItem extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SizedBox(
-            height: 158,
+            height: MediaQuery.of(context).size.height * .15,
             child: FutureBuilder(
               future: BooksApiService.fetchFeaturedBooks(),
               builder: (context, snapshot) {

@@ -1,8 +1,7 @@
-import 'package:bookly_app/featurs/home/widgets/best_seller_list.dart';
-import 'package:bookly_app/featurs/home/widgets/featurd_book_list.dart';
-import 'package:bookly_app/utils/api_servises.dart';
 import 'package:flutter/material.dart';
 
+import 'best_seller_list_future_builder.dart';
+import 'featurd_books_list_future_builder.dart';
 import 'home_header.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -16,43 +15,44 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          s1,
-          const HomeHeader(),
-          s1,
-          FutureBuilder(
-            future: BooksApiService.fetchFeaturedBooks(),
-            builder: (context, snapshot) {
-              if (snapshot.data == null) {
-                return const Center(child: CircularProgressIndicator());
-              } else {
-                return FeaturedBookList(books: snapshot.data!);
-              }
-            },
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: s1,
           ),
-          s1,
-          const Text(
-            "Best Seller",
-            style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),
+          const SliverToBoxAdapter(
+            child: HomeHeader(),
           ),
-          s1,
-          FutureBuilder(
-            future: BooksApiService.fetchFeaturedBooks(),
-            builder: (context, snapshot) {
-              if (snapshot.data == null) {
-                return const Center(child: CircularProgressIndicator());
-              } else {
-                return BestSellerList(books: snapshot.data!);
-              }
-            },
+          SliverToBoxAdapter(
+            child: s1,
+          ),
+          const SliverToBoxAdapter(
+            child: FeaturedBooksListFutureBuilder(),
           ),
 
-          //  HomeVerticalList(verticalItems: verticalItems),
+          SliverToBoxAdapter(
+            child: s1,
+          ),
+          const SliverToBoxAdapter(
+            child: Text(
+              "Newest Books",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: s1,
+          ),
+
+          // ,
+          const SliverToBoxAdapter(
+            child: BestSellerListFuturBuilder(),
+          )
         ],
       ),
     );
+    //  HomeVerticalList(verticalItems: verticalItems),
   }
 }

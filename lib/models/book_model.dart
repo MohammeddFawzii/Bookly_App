@@ -7,9 +7,10 @@ class BookModel {
   final num? price;
   final num? rating;
   final String? description;
-  
+  final int? ratingCount;
 
   BookModel({
+    @required this.ratingCount,
     @required this.image,
     required this.headLine,
     @required this.auther,
@@ -25,7 +26,8 @@ class BookModel {
       auther: jsonData["volumeInfo"]["authors"][0],
       price: jsonData["volumeInfo"]["listPrice"]?["amount"],
       rating: jsonData["volumeInfo"]["averageRating"],
-      description: jsonData["volumeInfo"]["description"] ,
+      description: jsonData["volumeInfo"]["description"],
+      ratingCount: jsonData["volumeInfo"]["ratingsCount"],
     );
   }
 }
