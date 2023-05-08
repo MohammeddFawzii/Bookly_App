@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../utils/api_servises.dart';
@@ -14,10 +13,20 @@ class FeaturedBooksListFutureBuilder extends StatelessWidget {
     return FutureBuilder(
       future: BooksApiService.fetchFeaturedBooks(),
       builder: (context, snapshot) {
-        if (snapshot.data == null) {
-          return const Center(child: CircularProgressIndicator());
+        if (!snapshot.hasError) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return FeaturedBookList(books: snapshot.data!);
+          } else {
+            return const Center(child: CircularProgressIndicator());
+          }
         } else {
-          return FeaturedBookList(books: snapshot.data!);
+          return Center(
+              child: Text(
+            snapshot.error.toString(),
+            style: const TextStyle(
+              color: Colors.white,
+            ),
+          ));
         }
       },
     );

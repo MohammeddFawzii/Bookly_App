@@ -1,4 +1,4 @@
-import 'package:bookly_app/featurs/book_details/widgets/details_Item.dart';
+import 'package:bookly_app/featurs/book_details/widgets/details_item.dart';
 import 'package:bookly_app/models/book_model.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +31,13 @@ class BookDetailsView extends StatelessWidget {
           ),
         ),
       ),
-      body: DetailsItem(bookModel: bookModel),
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: DetailsItem(bookModel: bookModel),
+          )
+        ],
+      ),
     );
   }
 }

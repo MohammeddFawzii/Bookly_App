@@ -12,18 +12,31 @@ abstract class BooksApiService {
       List<BookModel> books = parseData(response);
       return books;
     } catch (e) {
-      throw Exception("Erorr");
+      if (e is DioError) {
+        var message = e.response?.data["error"]["message"] ?? "try later";
+        throw Exception(message.toString());
+      }
+      throw Exception("somting went wrong try later");
     }
   }
 
   static Future<List<BookModel>> fetchBestSellerBooks() async {
-    final dio = Dio();
-    var response = await dio.get('$_baseUrl/volumes?q=$apiKey&orderBy=newest');
+    try {
+      final dio = Dio();
+      var response =
+          await dio.get('$_baseUrl/volumes?q=$apiKey&orderBy=newest');
 
-    List<BookModel> books = parseData(response);
-    return books;
+      List<BookModel> books = parseData(response);
+      return books;
+    } catch (e) {
+      if (e is DioError) {
+        var message = e.response?.data["error"]["message"] ?? "try later";
+        throw Exception(message.toString());
+      }
+      throw Exception("somting went wrong try later");
+    }
   }
-
+  
   static List<BookModel> parseData(Response<dynamic> response) {
     List<BookModel> books = [];
     var items = response.data['items'];

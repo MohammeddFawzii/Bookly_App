@@ -1,4 +1,3 @@
-
 import 'package:bookly_app/featurs/splash/widgets/splash_view_body.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +27,7 @@ class _SplashViewState extends State<SplashView> {
 
   void delayAndNavigate() {
     Future.delayed(const Duration(seconds: 3)).then((value) {
-      Navigator.pushNamed(context, HomeView.id);
+      Navigator.pushReplacementNamed(context, HomeView.id);
     });
   }
 }

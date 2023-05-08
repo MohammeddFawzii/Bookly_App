@@ -11,25 +11,28 @@ class BestSellerList extends StatelessWidget {
   final List<dynamic> books;
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      shrinkWrap: true,
-      itemCount: books.length,
-      physics: const NeverScrollableScrollPhysics(),
-      itemBuilder: (context, index) {
-        return GestureDetector(
-            onTap: () {
-              var currentBook = books[index];
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return BookDetailsView(
-                    bookModel: currentBook,
-                  );
-                },
-              ));
-            },
-            child: BestSellerListItem(bookmodel: books[index]));
-      },
-      scrollDirection: Axis.vertical,
+    return Padding(
+      padding: const EdgeInsets.only(right: 10),
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: books.length,
+        physics: const NeverScrollableScrollPhysics(),
+        itemBuilder: (context, index) {
+          return GestureDetector(
+              onTap: () {
+                var currentBook = books[index];
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return BookDetailsView(
+                      bookModel: currentBook,
+                    );
+                  },
+                ));
+              },
+              child: BestSellerListItem(bookmodel: books[index]));
+        },
+        scrollDirection: Axis.vertical,
+      ),
     );
   }
 }

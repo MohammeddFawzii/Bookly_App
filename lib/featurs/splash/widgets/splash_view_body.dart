@@ -29,11 +29,23 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Opacity(
-        opacity: animationController.value,
-        child: const Image(
-          image: AssetImage(AppImages.appLogo),
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Opacity(
+            opacity: animationController.value,
+            child: const Image(
+              image: AssetImage(AppImages.appLogo),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            "Your Way To Know More About Books..",
+            style: TextStyle(color: Colors.grey),
+          )
+        ],
       ),
     );
   }

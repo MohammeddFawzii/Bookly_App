@@ -25,7 +25,7 @@ class FeaturedBookItem extends StatelessWidget {
                 child: CachedNetworkImage(
                   fit: BoxFit.fill,
                   imageUrl: bookModel.image ??
-                      "https://media.istockphoto.com/id/1255906512/vector/error-500-page-empty-page-symbol-crash-banner-sorry-failure-graphic-message-vector.jpg?s=612x612&w=0&k=20&c=Jr0MgD_fj0d_O1PtJqA1y11IQ4_u2iLZqRJ2x3Mh2L4=",
+                      "https://lightwidget.com/wp-content/uploads/local-file-not-found-480x488.png",
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
